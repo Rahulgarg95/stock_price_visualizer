@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html lang = "en">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css?family=Cabin|Merriweather" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+</head>
 <div class = "info">
+  <h3 id="summary-txt"> Summary </h3>
   <div class = "tables">
-    <table id = "t01">
+    <table id = "t01" class="table table-bordered table-dark">
       <thead>
       <tr>
-        <th> Previous High / Low </th>
-        <th> {{val | safe}} Month High / Low </th>
+        <th scope="col"> Previous High / Low </th>
+        <th scope="col"> {{val | safe}} Month High / Low </th>
       </tr>
       </thead>
       <tbody>
@@ -19,11 +30,11 @@
     </table>
   </div>
   <div class = "tables">
-    <table id = "t02">
+    <table id = "t02" class="table table-bordered table-dark">
       <thead>
       <tr>
-        <th> {{val | safe}} Month Return </th>
-        <th> Simple Moving Average </th>
+        <th scope="col"> {{val | safe}} Month Return </th>
+        <th scope="col"> Simple Moving Average </th>
       </tr>
       </thead>
       <tbody>

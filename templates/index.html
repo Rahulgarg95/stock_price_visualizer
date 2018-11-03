@@ -8,50 +8,53 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+    <link href="https://fonts.googleapis.com/css?family=Cabin|Merriweather" rel="stylesheet">
+
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
 
         <title>Stock Market Analysis</title>
 
 </head>
-<body class="container-fluid">
+<body class="stock-body">
 
-    <div>
-      <h1 class="initial-header"> Stock Market Analysis </h1>
+    <div class="container-fluid">
+        <div>
+          <h1 class="initial-header"> Stock Market Analysis </h1>
+        </div>
+
+        <form  action = "http://localhost:5000/chart" method = 'POST' class="form-align">
+            <div class="form-row">
+                <div class="col">
+                  <label for="company_name">Company Name:</label>
+                  <input type="text" class="form-control" placeholder="Enter Company Name" name="company_name" required>
+                </div>
+                <div class="col">
+                  <label for="time_duration">Time Duration:</label>
+                  <select class="custom-select form-control" id="inlineFormCustomSelectPref" name="time_duration" required>
+                    <option value=""> Choose the below options... </option>
+                    <option value="one_month"> Last One Month </option>
+                    <option value="three_month"> Last Three Months </option>
+                    <option value="six_month"> Last Six Months </option>
+                    <option value="one_year"> Last One Year </option>
+                    <option value="five_year"> Last Five Years </option>
+                  </select>
+                </div>
+                <div class="col">
+                  <label for="chart_type">Chart Type:</label>
+                  <select class="custom-select form-control" id="inlineFormCustomSelectPref" name="chart_type" required>
+                    <option value=""> Choose the below options... </option>
+                    <option value="line_chart"> Line Chart </option>
+                    <option value="candlestick_chart"> Candlestick Chart </option>
+                    <option value="bar_chart"> Bar Chart </option>
+                  </select>
+                </div>
+            </div>
+            <br>
+            <div class="row" id="btn-comp">
+                <button type="submit" class="btn btn-lg btn-outline-primary" id="search-btn"> Generate </button>
+            </div>
+        </form>
     </div>
-
-    <form  action = "http://localhost:5000/chart" method = 'POST' class="form-align">
-      <div class="form-row">
-        <div class="col">
-          <label for="company_name">Company Name:</label>
-          <input type="text" class="form-control" placeholder="Enter Company Name" name="company_name" required>
-        </div>
-        <div class="col">
-          <label for="time_duration">Time Duration:</label>
-          <select class="custom-select form-control" id="inlineFormCustomSelectPref" name="time_duration" required>
-            <option value=""> Choose the below options... </option>
-            <option value="one_month"> Last One Month </option>
-            <option value="three_month"> Last Three Months </option>
-            <option value="six_month"> Last Six Months </option>
-            <option value="one_year"> Last One Year </option>
-            <option value="five_year"> Last Five Years </option>
-          </select>
-        </div>
-        <div class="col">
-          <label for="chart_type">Chart Type:</label>
-          <select class="custom-select form-control" id="inlineFormCustomSelectPref" name="chart_type" required>
-            <option value=""> Choose the below options... </option>
-            <option value="line_chart"> Line Chart </option>
-            <option value="candlestick_chart"> Candlestick Chart </option>
-            <option value="bar_chart"> Bar Chart </option>
-          </select>
-        </div>
-        <div class="col-auto">
-            <label for="submit">Submit:</label> <br>
-            <button type="submit" class="btn btn-outline-primary"> Generate </button>
-        </div>
-      </div>
-    </form>
-
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

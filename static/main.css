@@ -1,15 +1,39 @@
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.stock-body{
+	background-image: url("stock.jpg");
+	 /* Full height */
+    height: 100%; 
+    color: #ffffff;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .initial-header{
-	text-align: center;
-	padding-top: 20px;
+  text-align: center;
+  padding-top: 6rem;
+  font-family: 'Merriweather', serif;
 }
 
 .form-align{
-	padding-top: 30px;
+  padding-top: 3rem;
+  font-family: 'Cabin', sans-serif;
+  text-align: center;
 }
-
-
  .info{
    margin-top: 20px;
-   color:  #99ffeb;
  }
 
+#search-btn{
+  width: 200px;
+  margin: 0 auto;
+}
+
+#btn-comp{
+  padding-top: 30px;
+}
