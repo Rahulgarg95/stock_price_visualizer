@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+	<title>Chart</title>
+</head>
+<body>
+<b>{{text | safe}} </b>
+        <div class = "container">
+          {%block content%}
+          <link rel="stylesheet" href={{cdn_css | safe}} type="text/css">
+          <script type="text/javascript" src={{cdn_js | safe}}></script>
+          {{script1 | safe}}
+          {{div1 | safe}}
+          {% include extra ignore missing %}
+          {%endblock%}
+        </div>
+</body>
+</html>
